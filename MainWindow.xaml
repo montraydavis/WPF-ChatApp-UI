@@ -1,0 +1,35 @@
+﻿<Window x:Class="QNAGen.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:QNAGen"
+        xmlns:views="clr-namespace:QNAGen.Views"
+        xmlns:controls="clr-namespace:QNAGen.Controls"
+        Title="QNA Generator" Height="600" Width="1000"
+        Background="{StaticResource PrimaryBackgroundBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <controls:AppTopBar Grid.Row="0" TabChanged="TopBar_TabChanged"/>
+
+        <!-- Content area -->
+        <Grid Grid.Row="1">
+            <views:QNAView x:Name="QNAView" Visibility="Visible"/>
+            <views:ChatView x:Name="ChatView" Visibility="Collapsed"/>
+            <views:SettingsView x:Name="SettingsView" Visibility="Collapsed"/>
+        </Grid>
+
+        <!-- Overlay Grid for Popup -->
+        <Grid x:Name="PopupOverlay" Grid.RowSpan="2" Visibility="Collapsed" Background="#80000000">
+            <controls:StylePopup x:Name="ExportPopup"
+                                 Title="Export settings" ConfirmButtonText="Confirm and export"
+                                 CloseRequested="ExportPopup_CloseRequested"
+                                 ConfirmRequested="ExportPopup_ConfirmRequested"
+                                 HorizontalAlignment="Center" VerticalAlignment="Center">
+            </controls:StylePopup>
+        </Grid>
+    </Grid>
+</Window>

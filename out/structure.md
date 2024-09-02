@@ -1,0 +1,41 @@
+📄 App.xaml
+📄 App.xaml.cs
+📄 AssemblyInfo.cs
+📁 Controls
+  📄 AppSideBar.xaml
+  📄 AppSideBar.xaml.cs
+  📄 AppTopBar.xaml
+  📄 AppTopBar.xaml.cs
+  📄 StylePopup.xaml
+  📄 StylePopup.xaml.cs
+  📄 TypingIndicator.xaml
+  📄 TypingIndicator.xaml.cs
+📁 Converters
+  📄 BoolToAlignmentConverter.cs
+  📄 BoolToColorConverter.cs
+  📄 BoolToLabelConverter.cs
+  📄 BrightenColorConverter.cs
+  📄 ColorToColorConverter.cs
+  📄 DarkenColorConverter.cs
+📁 Docs
+  📄 README.md
+📄 MainWindow.xaml
+📄 MainWindow.xaml.cs
+📁 Models
+  📄 ChatMessage.cs
+📄 QNAGen.csproj
+📄 QNAGen.sln
+📁 Resources
+  📄 StyleResources.xaml
+📁 ViewModels
+  📄 BaseViewModel.cs
+📁 Views
+  📄 ChatView.xaml
+  📄 ChatView.xaml.cs
+  📄 QNAView.xaml
+  📄 QNAView.xaml.cs
+  📄 SettingsView.xaml
+  📄 SettingsView.xaml.cs
+📁 Workflows
+  📄 SQLGenerationWorkflow.cs
+  📄 WorkflowSteps.cs

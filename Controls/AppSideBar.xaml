@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="QNAGen.Controls.AppSideBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QNAGen.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="200">
+
+    <Grid Background="{StaticResource SecondaryBackgroundBrush}" x:Name="SidebarColumn" MinWidth="25">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <ToggleButton Grid.Row="0" Style="{StaticResource SidebarToggleButtonStyle}" 
+                      HorizontalAlignment="Right" Margin="0,10,10,0"
+                      Checked="SidebarToggle_Checked" Unchecked="SidebarToggle_Unchecked"/>
+
+        <ListView Grid.Row="1" BorderThickness="0" Background="Transparent">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem" BasedOn="{StaticResource SidebarListViewItemStyle}"/>
+            </ListView.ItemContainerStyle>
+            <ListViewItem>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="&#xE8BD;" FontFamily="Segoe MDL2 Assets" Margin="0,0,10,0"/>
+                    <TextBlock Text="Chat 1" Style="{StaticResource MediumTextStyle}"/>
+                </StackPanel>
+            </ListViewItem>
+            <ListViewItem>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="&#xE8BD;" FontFamily="Segoe MDL2 Assets" Margin="0,0,10,0"/>
+                    <TextBlock Text="Chat 2" Style="{StaticResource MediumTextStyle}"/>
+                </StackPanel>
+            </ListViewItem>
+            <ListViewItem>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="&#xE8BD;" FontFamily="Segoe MDL2 Assets" Margin="0,0,10,0"/>
+                    <TextBlock Text="Chat 3" Style="{StaticResource MediumTextStyle}"/>
+                </StackPanel>
+            </ListViewItem>
+        </ListView>
+    </Grid>
+</UserControl>

@@ -1,0 +1,70 @@
+﻿<UserControl x:Class="QNAGen.Views.ChatView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:QNAGen.Views"
+             xmlns:controls="clr-namespace:QNAGen.Controls"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <Grid Style="{StaticResource StandardGridStyle}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <ScrollViewer Grid.Row="0" Style="{StaticResource CustomScrollViewerStyle}">
+            <ItemsControl x:Name="chatListBox" Style="{StaticResource StandardItemsControlStyle}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Style="{StaticResource StandardStackPanelStyle}">
+                            <TextBlock Text="{Binding IsUser, Converter={StaticResource BoolToLabelConverter}}"
+                                       Style="{StaticResource SmallTextStyle}"
+                                       FontWeight="Bold"
+                                       Margin="5,0,0,5"
+                                       HorizontalAlignment="{Binding IsUser, Converter={StaticResource BoolToAlignmentConverter}}"/>
+                            <Border Background="{Binding IsUser, Converter={StaticResource BoolToColorConverter}}"
+                                    Style="{StaticResource ChatBubbleStyle}"
+                                    HorizontalAlignment="{Binding IsUser, Converter={StaticResource BoolToAlignmentConverter}}">
+                                <TextBlock Text="{Binding Message}" 
+                                           TextWrapping="Wrap" 
+                                           Style="{StaticResource MediumTextStyle}"/>
+                            </Border>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+        <controls:TypingIndicator x:Name="AITypingIndicator" 
+                                  Grid.Row="0" 
+                                  HorizontalAlignment="Left" 
+                                  VerticalAlignment="Bottom"
+                                  Margin="15,0,0,10"
+                                  Visibility="Collapsed"/>
+
+        <Grid Grid.Row="1" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="userInputTextBox" 
+                     Grid.Column="0" 
+                     Style="{StaticResource StandardTextBoxStyle}"
+                     Tag="Type a message..."
+                     IsEnabled="{Binding IsInputEnabled}"/>
+            <Button Grid.Column="1" 
+                    Content="Accept" 
+                    Click="AcceptButton_Click" 
+                    Style="{StaticResource PrimaryButtonStyle}"
+                    IsEnabled="{Binding IsInputEnabled}"/>
+            <Button Grid.Column="2" 
+                    Content="Deny" 
+                    Click="DenyButton_Click"
+                    Style="{StaticResource DangerButtonStyle}"
+                    IsEnabled="{Binding IsInputEnabled}"/>
+        </Grid>
+    </Grid>
+</UserControl>
